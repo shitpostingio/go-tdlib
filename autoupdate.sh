@@ -1,5 +1,5 @@
 #
-latest_repo_update=$(git log -1 --pretty="format:%ct")
+latest_makefile_update=$(git log -1 --pretty="format:%ct" Makefile)
 
 #
 git clone https://github.com/tdlib/td.git
@@ -8,7 +8,7 @@ latest_commit=$(cd td && git log -1 --pretty="format:%h")
 rm -rf td
 
 #
-if [ $latest_tdschema_update -gt $latest_repo_update ]; then
+if [ $latest_tdschema_update -gt $latest_makefile_update ]; then
 
         #
         echo "Updating the generated code to tdlib commit $latest_commit"
