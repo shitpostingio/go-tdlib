@@ -23,5 +23,6 @@ if [ $latest_tdschema_update -gt $latest_makefile_update ]; then
         make schema-update
         make generate-json
         make generate-code
-
+else
+        echo "No update needed - see you next time 😀"
 fi
