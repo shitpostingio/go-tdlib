@@ -3,8 +3,14 @@ latest_makefile_update=$(git log -1 --pretty="format:%ct" Makefile)
 
 #
 git clone https://github.com/tdlib/td.git
-latest_tdschema_update=$(cd td && git log -1 --pretty="format:%ct" td/generate/scheme)
+latest_tdschema_update=$(cd td && git log -1 --pretty="format:%ct" td/generate/scheme/td_api.tl)
 latest_commit=$(cd td && git log -1 --pretty="format:%h")
+
+#
+echo "Latest Makefile update: $(git log -1 --pretty="format:%ci" Makefile)"
+echo "Latest td_api.tl update: $(cd td && git log -1 --pretty="format:%ci" td/generate/scheme/td_api.tl)"
+
+#
 rm -rf td
 
 #
