@@ -22,10 +22,17 @@ if [ $ltu_date -gt $lru_date ]; then
         # Re-add the tag with the correct commit ID
         sed -i "1iTAG := $latest_tdlib_commit" Makefile
 
-        #
+        # Generate code
         make schema-update
         make generate-json
         make generate-code
+
+        # Push updates
+        git config --global user.name 'Alessandro Pomponio'
+        git config --global user.email '10339005+AlessandroPomponio@users.noreply.github.com'
+        git commit -am "[AUTO] Update to latest TDlib build"
+        git push
+
 else
         echo "No update needed - see you next time 😀"
 fi
